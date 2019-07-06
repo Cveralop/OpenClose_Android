@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class LoginRequest extends StringRequest {
+    //consulta a la base de datos por los datos ingresados en el MainActivity
     private static String ruta ="https://openclosechile.cl/usuario.php";
     private Map<String, String> parametros;
     public LoginRequest(String idUsuario, String clave, Response.Listener<String> listener) throws ParseException {

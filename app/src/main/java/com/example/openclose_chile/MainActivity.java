@@ -28,7 +28,7 @@ import java.text.ParseException;
 import static android.provider.ContactsContract.CommonDataKinds.Website.URL;
 
 public class MainActivity extends AppCompatActivity {
-
+// ventana de permiso telefono para la aplicación
     private static final int SOLICITUD_PERMISO_CALL_PHONE = 1;
 
     TextView nombre;
@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         final EditText edUser = (EditText)findViewById(R.id.eduser);
         final EditText edClave = (EditText)findViewById(R.id.edclave);
 
+//ingreso a la ventana que logea por huella digital
         btnHuella.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -54,7 +55,7 @@ public class MainActivity extends AppCompatActivity {
                 MainActivity.this.startActivity(e);
             }
         });
-
+//metodo para ingreso de login por usuario y clave
         btnAcceder.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -65,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
                     @Override
                     public void onResponse(String response) {
-
+                        //respuesta de la base de datos hacia el ingreso de los datos ingresados
                         try {
                             JSONObject jsonRespuesta = new JSONObject(response);
                             boolean ok = jsonRespuesta.getBoolean("success");
@@ -73,8 +74,6 @@ public class MainActivity extends AppCompatActivity {
                                 String user = jsonRespuesta.getString("idUsuario");
                                 String clave = jsonRespuesta.getString("clave");
                                 String nombre = jsonRespuesta.getString("nombre");
-                                //String apellido = jsonRespuesta.getString("apellido");
-                                // if(usert.equals(userj)&clavet.equals(clavej)){
 
                                 Intent i = new Intent(MainActivity.this, Pantalla_principal.class);
                                 // i.putExtra("idUsuario",user);
@@ -83,11 +82,10 @@ public class MainActivity extends AppCompatActivity {
 
                                 MainActivity.this.startActivity(i);
 
-                                //}else{
-                                //  Toast.makeText(null,"no valido",Toast.LENGTH_LONG).show();
-                                //}
 
                             }else{
+                                //ventana de alerta cuando los datos estan mal ingresados para el login
+
                                 AlertDialog.Builder alerta= new AlertDialog.Builder(MainActivity.this);
                                 alerta.setMessage("Fallo del Login").setNegativeButton("Reintentar", null).create().show();
 
@@ -127,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
+//metodo para solicitar los permisos del telefono
     private void solicitarPermiso()
     {
         ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.CALL_PHONE}, SOLICITUD_PERMISO_CALL_PHONE);
