@@ -4,5 +4,7 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
     <color name="colortextPrimary">#FFFFFF</color>
-    <color name="successText">#aaFF00</color>
+    <color name="successText">#AAFF00</color>
+    <color name="holo_red_dark">#ffcc0000</color>
+    <color name="holo_green_light">#ff99cc00</color>
 </resources>
