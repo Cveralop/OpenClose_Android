@@ -11,6 +11,8 @@ import javax.security.auth.callback.Callback;
 
 import static android.provider.ContactsContract.CommonDataKinds.Website.URL;
 
+package com.mysite.myapp;
+
 public class HttpClient {
     public void doRrequest(String status) {
         initClient();
