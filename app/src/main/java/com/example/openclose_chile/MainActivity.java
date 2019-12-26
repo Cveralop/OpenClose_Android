@@ -107,6 +107,29 @@ public class MainActivity extends AppCompatActivity {
                 cola = Volley.newRequestQueue(MainActivity.this);
                 cola.add(r);
 
+                int max = 5;
+                int min = 1;
+                int range = max - min + 1;
+                int rand = (int)(Math.random() * range) + min;
+
+                switch (rand){
+                    case 1:
+                        Toast.makeText(getApplicationContext(),"Revisa tu alrededor antes de ingresar",Toast.LENGTH_LONG).show();
+                        break;
+                    case 2:
+                        Toast.makeText(getApplicationContext(),"Verifica si tu entorno esta iluminado",Toast.LENGTH_LONG).show();
+                        break;
+                    case 3:
+                        Toast.makeText(getApplicationContext(),"No lleves cosas de valor a la vista",Toast.LENGTH_LONG).show();
+                        break;
+                    case 4:
+                        Toast.makeText(getApplicationContext(),"Si ves una situación extraña, llama inmediatamente a seguridad",Toast.LENGTH_LONG).show();
+                        break;
+                    case 5:
+                        Toast.makeText(getApplicationContext(),"En caso de incidente NO opongas resistencia, tu vida vale más.",Toast.LENGTH_LONG).show();
+                        break;
+                }
+
 
 
             }

@@ -8,9 +8,21 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.android.volley.Request;
+import com.android.volley.Response;
+
+import java.io.IOException;
+
+import javax.security.auth.callback.Callback;
+
+import okhttp3.RequestBody;
+
+import static android.provider.ContactsContract.CommonDataKinds.Website.URL;
 
 public class Pantalla_principal extends AppCompatActivity {
 
@@ -27,6 +39,7 @@ public class Pantalla_principal extends AppCompatActivity {
         TextView tvPatente = (TextView)findViewById(R.id.txtPatente);
         TextView tvDepto = (TextView)findViewById(R.id.txtDepto);
 
+
         bnemergencia.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -39,6 +52,8 @@ public class Pantalla_principal extends AppCompatActivity {
 
             }
         });
+
+
 
         bnAbrir.setOnClickListener(new View.OnClickListener() {
             @SuppressLint("ResourceAsColor")
@@ -53,9 +68,11 @@ public class Pantalla_principal extends AppCompatActivity {
                         bnAbrir.setBackgroundColor(R.color.holo_green_light);
 
 
+
             }
 
         });
+
 
 
     }

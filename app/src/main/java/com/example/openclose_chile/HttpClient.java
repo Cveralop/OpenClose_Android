@@ -9,17 +9,21 @@ import java.io.IOException;
 
 import javax.security.auth.callback.Callback;
 
+import okhttp3.OkHttpClient;
+import okhttp3.RequestBody;
+
 import static android.provider.ContactsContract.CommonDataKinds.Website.URL;
 
-package com.mysite.myapp;
+//package com.mysite.myapp;
 
 public class HttpClient {
     public void doRrequest(String status) {
-        initClient();
+        OkHttpClient client = new OkHttpClient();
+        //initClient();
         Log.d("AA", "Making request..["+status+"]");
         Request req = new Request.Builder().url(URL).post(RequestBody.create(JSON, createJSON(status))).build();
 
-        Object client;
+
         client.newCall(req).enqueue(new Callback() {
             @Override
             public void onFailure(Request request, IOException e) { }
@@ -31,7 +35,5 @@ public class HttpClient {
         });
     }
 
-    private void initClient() {
-    }
 
 }
