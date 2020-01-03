@@ -16,7 +16,7 @@ import static android.provider.ContactsContract.CommonDataKinds.Website.URL;
 
 //package com.mysite.myapp;
 
-public class HttpClient {
+/*public class HttpClient {
     public void doRrequest(String status) {
         OkHttpClient client = new OkHttpClient();
         //initClient();
@@ -36,4 +36,4 @@ public class HttpClient {
     }
 
 
-}
+}*/

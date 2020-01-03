@@ -72,15 +72,44 @@ public class MainActivity extends AppCompatActivity {
                             boolean ok = jsonRespuesta.getBoolean("success");
                             if(ok==true){
                                 String user = jsonRespuesta.getString("idUsuario");
-                                String clave = jsonRespuesta.getString("clave");
+                                String clave = jsonRespuesta.getString("password");
                                 String nombre = jsonRespuesta.getString("nombre");
+                                String apellido = jsonRespuesta.getString("apellido");
+                                String patente = jsonRespuesta.getString("vehiculo_ppu");
 
                                 Intent i = new Intent(MainActivity.this, Pantalla_principal.class);
-                                // i.putExtra("idUsuario",user);
+                                i.putExtra("idUsuario",user);
                                 i.putExtra("nombre",nombre);
-                                //i.putExtra("apellido",apellido);
+                                i.putExtra("apellido",apellido);
+                                i.putExtra("patente",patente);
+
+                                //startActivity(i);
+
 
                                 MainActivity.this.startActivity(i);
+
+                                int max = 5;
+                                int min = 1;
+                                int range = max - min + 1;
+                                int rand = (int)(Math.random() * range) + min;
+
+                                switch (rand){
+                                    case 1:
+                                        Toast.makeText(getApplicationContext(),"Revisa tu alrededor antes de ingresar",Toast.LENGTH_LONG).show();
+                                        break;
+                                    case 2:
+                                        Toast.makeText(getApplicationContext(),"Verifica si tu entorno esta iluminado",Toast.LENGTH_LONG).show();
+                                        break;
+                                    case 3:
+                                        Toast.makeText(getApplicationContext(),"No lleves cosas de valor a la vista",Toast.LENGTH_LONG).show();
+                                        break;
+                                    case 4:
+                                        Toast.makeText(getApplicationContext(),"Si ves una situación extraña, llama inmediatamente a seguridad",Toast.LENGTH_LONG).show();
+                                        break;
+                                    case 5:
+                                        Toast.makeText(getApplicationContext(),"En caso de incidente NO opongas resistencia, tu vida vale más.",Toast.LENGTH_LONG).show();
+                                        break;
+                                }
 
 
                             }else{
@@ -106,31 +135,6 @@ public class MainActivity extends AppCompatActivity {
                 }
                 cola = Volley.newRequestQueue(MainActivity.this);
                 cola.add(r);
-
-                int max = 5;
-                int min = 1;
-                int range = max - min + 1;
-                int rand = (int)(Math.random() * range) + min;
-
-                switch (rand){
-                    case 1:
-                        Toast.makeText(getApplicationContext(),"Revisa tu alrededor antes de ingresar",Toast.LENGTH_LONG).show();
-                        break;
-                    case 2:
-                        Toast.makeText(getApplicationContext(),"Verifica si tu entorno esta iluminado",Toast.LENGTH_LONG).show();
-                        break;
-                    case 3:
-                        Toast.makeText(getApplicationContext(),"No lleves cosas de valor a la vista",Toast.LENGTH_LONG).show();
-                        break;
-                    case 4:
-                        Toast.makeText(getApplicationContext(),"Si ves una situación extraña, llama inmediatamente a seguridad",Toast.LENGTH_LONG).show();
-                        break;
-                    case 5:
-                        Toast.makeText(getApplicationContext(),"En caso de incidente NO opongas resistencia, tu vida vale más.",Toast.LENGTH_LONG).show();
-                        break;
-                }
-
-
 
             }
         });

@@ -13,7 +13,7 @@ import java.util.Map;
 public class LoginRequest extends StringRequest {
     //consulta a la base de datos por los datos ingresados en el MainActivity
 
-    private static String ruta ="https://www.openclosechile.cl/usuario.php";
+    private static String ruta ="https://www.openclosechile.cl/usuariolog.php";
     private Map<String, String> parametros;
     public LoginRequest(String idUsuario, String clave, Response.Listener<String> listener) throws ParseException {
         super(Request.Method.POST, ruta, listener, null);
@@ -24,7 +24,7 @@ public class LoginRequest extends StringRequest {
         String clave_md5 = md5(claveConvertir);
 
         parametros.put("idUsuario", idUsuario);
-        parametros.put("clave", clave_md5);
+        parametros.put("password", clave_md5);
 
     }
     @Override
